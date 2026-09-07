@@ -29,7 +29,7 @@ function App() {
       accountNo: "1002-345-112233",
       accountType: "적금",
       balance: 1200000,
-      status: "정상",
+      status: "지급정지",
       ownerName: "김연지",
     },
     {
