@@ -1,4 +1,5 @@
 // 필요한 부품들을 불러옵니다.
+import { useState } from 'react'
 import './App.css'
 import Clock from './components/Clock.jsx'
 import Panel from './components/Panel.jsx'
