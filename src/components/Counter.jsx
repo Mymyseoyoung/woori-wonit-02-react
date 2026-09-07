@@ -24,9 +24,9 @@ function Counter(){
 
     
 return (<>
-    // ↑ 이 컴포넌트가 화면에 그릴 JSX를 반환.
+   {/* // ↑ 이 컴포넌트가 화면에 그릴 JSX를 반환.
     // <> </> 는 Fragment라고 부르며, 여러 태그를 하나로 묶되
-    // 실제 HTML에는 흔적(div 등)을 안 남기고 싶을 때 사용.
+    // 실제 HTML에는 흔적(div 등)을 안 남기고 싶을 때 사용.*/}
 
 <button onClick={()=>setCount(count+1)}>{count}</button>
 {/* ↑ 클릭 가능한 버튼을 렌더링.

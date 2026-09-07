@@ -6,6 +6,7 @@ import Panel from './components/Panel.jsx'
 import AccountCard  from './components/AccountCard.jsx'
 import Header from './components/Header.jsx'
 import Counter from './components/Counter.jsx'  
+import TransactionRow from './components/TransactionRow.jsx'
 // 02_html기초.html 안에 만들었던 계좌카드의 css를 가져와서
 // 아래에 있는 카드를 좀더 그럴듯하게 꾸며보세요.
 // 실제로 사용될 화면을 그립니다.
@@ -41,9 +42,52 @@ function App() {
     },
   ]
 
+  const transactions = [
+  {
+    txId: 1,
+    accountId: 1,
+    txType: "출금",
+    amount: 12000,
+    balanceAfter: 1511000,
+    category: "식비",
+    memo: "점심",
+    counterparty: "김밥천국",
+    txDatetime: "2026-09-02T12:31:00",
+  },
+  {
+    txId: 2,
+    accountId: 1,
+    txType: "입금",
+    amount: 2400000,
+    balanceAfter: 3911000,
+    category: "급여",
+    memo: "9월 급여",
+    counterparty: "우리회사",
+    txDatetime: "2026-09-01T09:00:00",
+  },
+  {
+    txId: 3,
+    accountId: 1,
+    txType: "출금",
+    amount: 45000,
+    balanceAfter: 3866000,
+    category: "쇼핑",
+    memo: "운동화",
+    counterparty: "무신사",
+    txDatetime: "2026-08-31T20:14:00",
+  },
+]
+
   // flag 변수: 깃발을 들어서 교통량을 제어하는 것처럼 이 변수의 역할은 특정 로직을 끄거나 켜거나 밖에 없기 때문에
   // flag 변수를 사용할 때는 default 값을 false로 만들고 시작하는 로직을 권장 
    const [showFullNo, setShowFullNo] = useState(false);
+   //금액 보기 
+
+     // 실습!
+  // showAmount 버튼의 클릭 여부에 따라 AccoutCard의 금액이 보이거나 보이지 않도록 
+  // prop으로 새로 생긴 변수를 넘겨보세요
+   const [showAmount, setShowAmount] = useState(false);
+
   //     ↑현재 값      ↑바꾸는 함수              ↑처음값
 
   
@@ -57,7 +101,10 @@ function App() {
      <button onClick={() => setShowFullNo(!showFullNo)}>
       {showFullNo ? "계좌번호 숨기기" : "계좌번호 보기"}
     </button>
-    {console.log(showFullNo)}
+    
+    <button onClick={()=> setShowAmount(!showAmount)}>
+      {showAmount ? "금액 숨기기" : "금액 보기"}
+    </button>
     <Clock />
     <Counter/>
     {/* class 는 JS의 예약어이므로 JSX에서는 className으로 대신 사용합니다.*/}
@@ -69,7 +116,8 @@ function App() {
                   accountType={accounts[0].accountType} 
                   balance={accounts[0].balance}
                   status={accounts[0].status}
-                  showFullNo={showFullNo} />
+                  showFullNo={showFullNo}
+                  showAmount={showAmount} />
       
       {/*두번째 AccountCard가 출력되도록 accounts[1] dict의 값과 매핑해주세요.*/}
 
@@ -77,9 +125,45 @@ function App() {
                   accountType={accounts[1].accountType} 
                   balance={accounts[1].balance}
                   status={accounts[1].status}
-                  showFullNo={showFullNo} />
+                  showFullNo={showFullNo}
+                  showAmount={showAmount} />
       
       {/*세번째 AccountCard가 출력되도록 accounts[2] dict의 값과 매핑해주세요.*/}
+      <AccountCard accountNo={accounts[2].accountNo}
+                  accountType={accounts[2].accountType} 
+                  balance={accounts[2].balance}
+                  status={accounts[2].status}
+                  showFullNo={showFullNo}
+                  showAmount={showAmount} />
+      
+    </Panel>
+
+    <Panel title="최근 거래">
+      <TransactionRow txType={transactions[0].txType}
+                      amount={transactions[0].amount}
+                      counterparty={transactions[0].counterparty}
+                      memo={transactions[0].memo}
+                      category={transactions[0].category}
+                      txDatetime={transactions[0].txDatetime} />
+    
+    </Panel>
+     <Panel title="최근 거래">
+      <TransactionRow txType={transactions[1].txType}
+                      amount={transactions[1].amount}
+                      counterparty={transactions[1].counterparty}
+                      memo={transactions[1].memo}
+                      category={transactions[1].category}
+                      txDatetime={transactions[1].txDatetime} />
+    
+    </Panel>
+     <Panel title="최근 거래">
+      <TransactionRow txType={transactions[2].txType}
+                      amount={transactions[2].amount}
+                      counterparty={transactions[2].counterparty}
+                      memo={transactions[2].memo}
+                      category={transactions[2].category}
+                      txDatetime={transactions[2].txDatetime} />
+    
     </Panel>
     </>
   );
