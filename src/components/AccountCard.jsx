@@ -2,7 +2,7 @@
 import StatusBadge from "./StatusBadge.jsx";
 import { formatWon, maskAccountNo,formatWonMasked } from "../utils/format";
 
-function AccountCard({ accountNo, accountType, balance, status, showFullNo,showAmount }) {
+function AccountCard({ accountNo, accountType, balance, status, showFullNo,showAmount, onDeposit }) {
   return (
     <div className="card">
           {/* console.log('❤️', showAmount) */}
@@ -16,7 +16,7 @@ function AccountCard({ accountNo, accountType, balance, status, showFullNo,showA
       </strong>
 
       {/*Account Card 안에 버튼을 누르면 1만원 입금 추가 */}
-      <button ClassName="btn" onClick={(balance)=>{balance + 10000}}>1만원 입금</button>
+      <button ClassName="btn" onClick={(balance)=>{onDeposit}}>1만원 입금</button>
     </div>
   );
 }
