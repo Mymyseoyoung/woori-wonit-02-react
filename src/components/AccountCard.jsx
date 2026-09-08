@@ -14,6 +14,9 @@ function AccountCard({ accountNo, accountType, balance, status, showFullNo,showA
       <strong className="balance">
        { formatWonMasked(balance, showAmount) }
       </strong>
+
+      {/*Account Card 안에 버튼을 누르면 1만원 입금 추가 */}
+      <button ClassName="btn" onClick={(balance)=>{balance + 10000}}>1만원 입금</button>
     </div>
   );
 }

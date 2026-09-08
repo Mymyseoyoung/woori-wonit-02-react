@@ -14,7 +14,7 @@ export const accounts = [
     accountNo: "1002-345-112233",
     accountType: "적금",
     balance: 1200000,
-    status: "정상",
+    status: "지급정지",
     ownerName: "김연지",
   },
   {
@@ -65,8 +65,7 @@ export const transactions = [
 ]
 
 
-// 필요한 부품들을 불러옵니다.
-import './App.css'
+// 필요한 부품들을 불러옵니다.import './App.css'
 // 02_html기초.html 안에 만들었던 계좌카드의 css를 가져와서
 // 아래에 있는 카드를 좀더 그럴듯하게 꾸며보세요.
 // 동작
