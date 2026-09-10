@@ -7,11 +7,26 @@
 // 컴포넌트 명은 대문자로 시작하는 파스칼케이스를 따릅니다.
 
 
-
+/*
 function Clock() {
     const now = new Date();
     return <span>{now.toLocaleTimeString("ko-KR")}</span>
 }
+    */
+
+const [now, setNow]=useState(new Date());
+
+useEffect(()=> {
+    const id = setInterval() =>setNow(new Date(),1000);
+    console.log(id);
+
+    return ()=> clearInterval(id); // 정리함수 
+},[]);
+
+
+return <span className="muted">
+    {now.toLocaleTimeString("ko-KR")}
+</span>
 
 
 export default Clock;

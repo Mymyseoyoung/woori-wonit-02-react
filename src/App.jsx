@@ -9,6 +9,9 @@ import Counter from './components/Counter.jsx'
 import TransactionRow from './components/TransactionRow.jsx'
 import { transactions } from './data/mockData'
 import { formatWon } from './utils/format.js'
+import ExchangeRate from './components/ExchangeRate.jsx'
+
+
 // 02_html기초.html 안에 만들었던 계좌카드의 css를 가져와서
 // 아래에 있는 카드를 좀더 그럴듯하게 꾸며보세요.
 // 실제로 사용될 화면을 그립니다.
@@ -206,6 +209,9 @@ function App() {
                       category={transactions[2].category}
                       txDatetime={transactions[2].txDatetime} />
     
+    </Panel>
+    <Panel title="오늘의 환율">
+      <ExchangeRate />
     </Panel>
     </>
   );
