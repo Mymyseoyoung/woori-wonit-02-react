@@ -1,23 +1,26 @@
-//정상 표시 나오는 것 . ( 값에 따라서 ( 정상 / 휴면 )에 따라 css 연동해서 사용)
-// 계좌 상태에 따라 뱃지 색을 바꿀거임 .
+// 계좌 상태에 따라 배지 색을 바꿀 겁니다.
+import { useUser } from "../contexts/UserContext.jsx";
 
-const colors ={
- "정상": "#00FF00",
- "휴면":"#858685",
- "지급정지": "#FF0000",
- "해지": "#1f1f1f"
 
+const colors = {
+    "정상" : "#036c03",
+    "휴면" : "#858685",
+    "지급정지" : "#fc0808",
+    "해지" : "#1f1f1f"
 }
 
-//inline(코드 사이에 css를 입힐 때): style{{key: value}}  형식으로 작성함. 
-//span : 자기 영역만큼만 ! 색을 입힘
-function StatusBadge({status}){
+// inline(코드 사이에 css를 입힐 때): style={{ key: value }} 형식으로 삽입합니다.
+function StatusBadge({ }){
+
+    // UserContext에서 현재 계좌의 status를 가져옵니다.
+    const user = useUser();
+    const status = user.status;
+
     return (
-        //자기 영역만큼만 차지하도록 span 태그 사용 ! 
-        <span className="badge" style={{backgroundColor: colors[status]}}>
+        <span className="badge" style={{ backgroundColor : colors[status] }}>
             {status}
         </span>
     )
-}
+} 
 
-export default StatusBadge;
+export default StatusBadge
